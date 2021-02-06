@@ -12,19 +12,26 @@ local_backend: true
 collections:
   - label: Ofertas
     name: offers
-    folder: "src/offers"
+    folder: "src/_offers"
     create: true
     editor:
       preview: false
     fields:
+      - { label: Nome do produto, name: title, widget: string }
+      - { label: Descrição, name: description, widget: text }
+      - { label: Preço, name: fullPrice, widget: number }
       - label: Imagem
         name: image
         widget: image
-        media_library:
-          config:
-            multiple: true
-      - { label: Nome do produto, name: name, widget: string }
-      - { label: Descrição, name: description, widget: text }
-      - { label: Preço cheio, name: fullPrice, widget: number }
-      - { label: Preço com desconto, name: offeredPrice, widget: number }
-      - { label: Porcentagem de desconto, name: discountPercentage, widget: number }
+      - label: Imagem2
+        name: image2
+        required: false
+        widget: image
+      - label: Imagem3
+        name: image2
+        required: false
+        widget: image
+      - label: Imagem4
+        name: image2
+        required: false
+        widget: image

@@ -15,6 +15,16 @@ module.exports = {
     },
     {
       use: 'gridsome-plugin-tailwindcss'
-    }
+    },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: 'src/_offers',
+        typeName: 'Offers',
+        remark: {
+          // remark options
+        }
+      }
+    },
   ]
 }
