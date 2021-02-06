@@ -1,0 +1,30 @@
+backend:
+  name: git-gateway
+  branch: main
+
+locale: 'pt-BR'
+media_folder: "static/uploads"
+public_folder: "./static/uploads"
+
+# Please run "npx netlify-cms-proxy-server" for local backend
+local_backend: true
+
+collections:
+  - label: Ofertas
+    name: offers
+    folder: "src/offers"
+    create: true
+    editor:
+      preview: false
+    fields:
+      - label: Imagem
+        name: image
+        widget: image
+        media_library:
+          config:
+            multiple: true
+      - { label: Nome do produto, name: name, widget: string }
+      - { label: Descrição, name: description, widget: text }
+      - { label: Preço cheio, name: fullPrice, widget: number }
+      - { label: Preço com desconto, name: offeredPrice, widget: number }
+      - { label: Porcentagem de desconto, name: discountPercentage, widget: number }
