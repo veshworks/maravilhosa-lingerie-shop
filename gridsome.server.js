@@ -17,11 +17,9 @@ module.exports = function (api) {
     // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
 
     const offers = getCollection('Offers')
-    offers.data().forEach((node) => {
+    offers.data().forEach(({ internal, ...node }) => {
       offers.updateNode({
-        ...(Object.fromEntries(Object.entries(node).filter(([key]) => [
-          'id', 'path', 'name', 'description', 'fullPrice',
-        ].includes(key)))),
+        ...node,
         imageList: node.imageList.map((image) => transformRelativePaths(image, ['image'])),
       })
     })
