@@ -13,25 +13,20 @@ collections:
   - label: Ofertas
     name: offers
     folder: "src/_offers"
+    extension: "json"
     create: true
     editor:
       preview: false
+    identifier_field: name
     fields:
-      - { label: Nome do produto, name: title, widget: string }
+      - { label: Nome do produto, name: name, widget: string }
       - { label: Descrição, name: description, widget: text }
-      - { label: Preço, name: fullPrice, widget: number }
-      - label: Imagem
-        name: image
-        widget: image
-      - label: Imagem2
-        name: image2
-        required: false
-        widget: image
-      - label: Imagem3
-        name: image2
-        required: false
-        widget: image
-      - label: Imagem4
-        name: image2
-        required: false
-        widget: image
+      - { label: Preço, name: fullPrice, widget: number, value_type: float }
+      - label: Imagens
+        name: imageList
+        widget: list
+        fields:
+          - widget: string
+            name: alt
+          - widget: image
+            name: image

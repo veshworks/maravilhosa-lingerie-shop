@@ -8,17 +8,23 @@
 const transformRelativePaths = (source, keylist) => Object.fromEntries(
   Object.entries(source)
     .map(([key, value]) => keylist.includes(key)
-      ? [key, require.resolve(value)]
+      ? [key, require.resolve(`./${value}`)]
       : [key, value])
 )
 
 module.exports = function (api) {
-  api.loadSource(({ addCollection }) => {
+  api.loadSource(({ addCollection, getCollection }) => {
     // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
 
-    // const offersData = transformRelativePaths(require('./src/_data/offers.json'), ['logo'])
-    // const offers = addCollection('Offers')
-    // offersData.offers.reverse().forEach(offers.addNode)
+    const offers = getCollection('Offers')
+    offers.data().forEach((node) => {
+      offers.updateNode({
+        ...(Object.fromEntries(Object.entries(node).filter(([key]) => [
+          'id', 'path', 'name', 'description', 'fullPrice',
+        ].includes(key)))),
+        imageList: node.imageList.map((image) => transformRelativePaths(image, ['image'])),
+      })
+    })
   })
 
   api.createPages(({ createPage }) => {

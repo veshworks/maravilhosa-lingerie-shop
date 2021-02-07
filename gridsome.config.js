@@ -19,11 +19,9 @@ module.exports = {
     {
       use: '@gridsome/source-filesystem',
       options: {
-        path: 'src/_offers',
+        baseDir: './src',
+        path: '_offers/*.json',
         typeName: 'Offers',
-        remark: {
-          // remark options
-        }
       }
     },
   ]
