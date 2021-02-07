@@ -1,0 +1,15 @@
+{
+  "name": "Vinicius Hoyer",
+  "description": "Menino bom",
+  "fullPrice": 69.51,
+  "imageList": [
+    {
+      "image": "static/uploads/82f3f619-ffb4-478c-9d8b-63023076f895.jpeg",
+      "alt": "Menino bom olhando quase pra camera"
+    },
+    {
+      "alt": "Menino bom olhando pra longe da camera",
+      "image": "static/uploads/f99ec7ad-951a-43e9-b477-da2db05d8410.jpeg"
+    }
+  ]
+}
