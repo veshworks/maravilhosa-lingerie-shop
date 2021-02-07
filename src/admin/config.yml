@@ -22,6 +22,10 @@ collections:
       - { label: Nome do produto, name: name, widget: string }
       - { label: Descrição, name: description, widget: text }
       - { label: Preço, name: fullPrice, widget: number, value_type: float }
+      - label: Estoque
+        name: stock
+        widget: number
+        default: 1
       - label: Imagens
         name: imageList
         widget: list
