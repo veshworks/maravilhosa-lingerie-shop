@@ -11,9 +11,11 @@
           :src="offer.imageList[0].image"
         />
 
-        <strong>
-          {{ offer.name }}
-        </strong>
+        <g-link :href="offer.path">
+          <strong>
+            {{ offer.name }}
+          </strong>
+        </g-link>
 
         <p>
           {{ offer.description }}
