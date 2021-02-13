@@ -7,14 +7,22 @@
         </h1>
 
         <strong class="text-2xl">
-          {{ $options.price.format($page.offer.fullPrice) }}
+          {{ price }}
         </strong>
 
         <ui-tag class="my-5">
           {{ tagline }}
         </ui-tag>
 
-        <p>
+        <a
+          :href="`https://wa.me/5512991552955?text=${message}`"
+          target="_blank"
+          class="block px-5 py-3 font-semibold text-center text-white uppercase bg-primary hover:bg-secondary transition-colors"
+        >
+          <i class="fab fa-whatsapp fa-lg"></i> Quero este
+        </a>
+
+        <p class="mt-5">
           {{ $page.offer.description }}
         </p>
       </div>
@@ -36,8 +44,10 @@ export default {
   components: {
     SpotlightImage,
   },
-  price,
   computed: {
+    price() {
+      return price.format(this.$page.offer.fullPrice)
+    },
     tagline() {
       if (this.$page.offer.stock === 0) {
         return 'Esgotado'
@@ -49,15 +59,22 @@ export default {
 
       return `Ultimas ${this.$page.offer.stock} unidades`
     },
+    message() {
+      return encodeURIComponent(`Oi, gostaria de comprar o "${this.$page.offer.name}" (por ${this.price}).\n\n${this.$page.metadata.siteUrl}${this.$page.offer.path}`)
+    },
   },
 };
 </script>
 
 <page-query>
 query ($id: ID!) {
+  metadata {
+    siteUrl
+  }
   offer(id: $id) {
     id
     name
+    path
     description
     fullPrice
     stock

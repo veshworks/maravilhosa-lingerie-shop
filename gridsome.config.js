@@ -6,6 +6,7 @@
 
 module.exports = {
   siteName: 'Maravilhosa Lingerie',
+  siteUrl: 'https://maravilhosalingerie.netlify.app',
   plugins: [
     {
       use: 'gridsome-plugin-netlify-cms',
