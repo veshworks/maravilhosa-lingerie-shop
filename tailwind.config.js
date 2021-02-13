@@ -11,6 +11,20 @@ module.exports = {
       'desktop': '1024px',
     },
     extend: {
+      boxShadow: {
+        'selected': '0 0 0 4px #c6a058'
+      },
+      color: {
+        'primary': {
+          '500': '#c6a058'
+        },
+        'accent': {
+          '500': '#ff0000'
+        },
+      },
+      gridTemplateColumns: {
+        '1full': 'repeat(1, minmax(0, 100%))',
+      },
       animation: {
         skeleton: '2s skeleton infinite linear',
       },

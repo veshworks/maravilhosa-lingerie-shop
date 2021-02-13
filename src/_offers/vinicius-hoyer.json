@@ -10,7 +10,27 @@
     {
       "alt": "Menino bom olhando pra longe da camera",
       "image": "static/uploads/f99ec7ad-951a-43e9-b477-da2db05d8410.jpeg"
+    },
+    {
+      "image": "static/uploads/potato-me.jpg",
+      "alt": "Sendo engraçado como batata"
+    },
+    {
+      "image": "static/uploads/kuro-firebolt.png",
+      "alt": "Personagem de RPG do dito cujo"
+    },
+    {
+      "image": "static/uploads/rabbit.jpg",
+      "alt": "Signo chinês coelho"
+    },
+    {
+      "image": "static/uploads/img_20171016_225021_924.jpg",
+      "alt": "Outra personagem de RPG"
+    },
+    {
+      "image": "static/uploads/20201225_132647.jpg",
+      "alt": "Doginho que vem junto"
     }
   ],
-  "stock": 1
+  "stock": 3
 }

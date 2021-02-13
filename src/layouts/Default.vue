@@ -12,6 +12,17 @@
     </header>
 
     <slot/>
+
+    <footer class="flex justify-center py-5 mt-16">
+      <g-link to="/">
+        <g-image
+          :alt="$static.metadata.siteName"
+          src="~/assets/maravilhosa-logo.png"
+          width="290"
+          height="119"
+        />
+      </g-link>
+    </footer>
   </div>
 </template>
 
