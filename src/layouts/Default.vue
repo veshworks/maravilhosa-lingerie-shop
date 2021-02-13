@@ -13,7 +13,7 @@
 
     <slot/>
 
-    <footer class="flex justify-center py-5 mt-16">
+    <footer class="flex flex-col items-center py-5 mt-16 gap-4">
       <g-link to="/">
         <g-image
           :alt="$static.metadata.siteName"
