@@ -1,40 +1,49 @@
 <template>
   <Layout>
-    <div class="grid desktop:grid-cols-3 grid-flow-rows gap-4">
+    <ui-container class="grid desktop:grid-cols-3 grid-flow-rows gap-4">
       <div
-        v-for="({ node: offer }) in $static.allOffer.edges"
+        v-for="offer in allOffer"
         :key="offer.id"
-        class=" border border-gray"
+        class="border border-gray"
       >
-        <g-image
-          :alt="offer.imageList[0].alt"
-          :src="offer.imageList[0].image"
-        />
+        <g-link :to="offer.path">
+          <g-image
+            :alt="offer.imageList[0].alt"
+            :src="offer.imageList[0].image"
+            class="object-cover w-full h-96"
+          />
+        </g-link>
 
-        <strong>
-          <a :href="offer.path">
-            {{ offer.name }}
-          </a>
-        </strong>
+        <div class="p-4 text-center">
+          <strong class="font-semibold">
+            <g-link :to="offer.path">
+              {{ offer.name }}
+            </g-link>
+          </strong>
 
-        <p>
-          {{ offer.description }}
-        </p>
-
-        <div>
-          {{ offer.fullPrice }}
+          <strong class="block mt-3 text-lg">
+            {{ offer.displayPrice }}
+          </strong>
         </div>
-
-        {{ offer.stock }}
       </div>
-    </div>
+    </ui-container>
   </Layout>
 </template>
 
 <script>
+import { price } from '~/utils'
+
 export default {
   metaInfo: {
     title: 'Hello, world!'
+  },
+  computed: {
+    allOffer() {
+      return this.$static.allOffer.edges.map(({ node: offer }) => ({
+        ...offer,
+        displayPrice: price.format(offer.fullPrice),
+      }))
+    },
   }
 }
 </script>
