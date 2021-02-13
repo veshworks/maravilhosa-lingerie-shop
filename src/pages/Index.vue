@@ -2,7 +2,7 @@
   <Layout>
     <div class="grid desktop:grid-cols-3 grid-flow-rows gap-4">
       <div
-        v-for="({ node: offer }) in $static.allOffers.edges"
+        v-for="({ node: offer }) in $static.allOffer.edges"
         :key="offer.id"
         class=" border border-gray"
       >
@@ -41,7 +41,7 @@ export default {
 
 <static-query>
 query {
-  allOffers {
+  allOffer {
     edges {
       node {
         id

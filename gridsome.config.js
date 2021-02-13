@@ -21,7 +21,7 @@ module.exports = {
       options: {
         baseDir: './src',
         path: '_offers/*.json',
-        typeName: 'Offers',
+        typeName: 'Offer',
       }
     },
   ]

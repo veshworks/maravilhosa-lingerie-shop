@@ -16,7 +16,7 @@ module.exports = function (api) {
   api.loadSource(({ addCollection, getCollection }) => {
     // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
 
-    const offers = getCollection('Offers')
+    const offers = getCollection('Offer')
     offers.data().forEach(({ internal, ...node }) => {
       offers.updateNode({
         ...node,

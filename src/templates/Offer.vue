@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    {{ $page.offers.name }}
+    {{ $page.offer.name }}
 
     <pre><code>{{ $page }}</code></pre>
   </Layout>
@@ -8,13 +8,13 @@
 
 <script>
 export default {
-  name: 'Offers',
+  name: 'Offer',
 };
 </script>
 
 <page-query>
 query ($id: ID!) {
-  offers(id: $id) {
+  offer(id: $id) {
     id
     path
     name
