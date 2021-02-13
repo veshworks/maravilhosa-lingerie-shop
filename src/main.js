@@ -47,11 +47,11 @@ export default function (Vue, { router, head, isClient }) {
 }`
   })
 
-  head.link.push({ rel: 'preconnect', href: 'https://kit.fontawesome.com' })
-  head.script.push({
-    async: true,
-    defer: true,
-    src: 'https://kit.fontawesome.com/f61b818a19.js',
-    crossorigin: 'anonymous'
-  })
+  // head.link.push({ rel: 'preconnect', href: 'https://kit.fontawesome.com' })
+  // head.script.push({
+  //   async: true,
+  //   defer: true,
+  //   src: 'https://kit.fontawesome.com/f61b818a19.js',
+  //   crossorigin: 'anonymous'
+  // })
 }
