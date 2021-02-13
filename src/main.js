@@ -13,6 +13,12 @@ export default function (Vue, { router, head, isClient }) {
     lang: 'pt-BR'
   }
 
+  head.link.push({
+    rel: 'icon',
+    type: 'image/x-icon',
+    href: '/favicon.ico',
+  })
+
   head.style.push({
     innerHTML: `
 /* open-sans-regular - latin */
