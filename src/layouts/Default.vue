@@ -1,6 +1,6 @@
 <template>
   <div class="container mx-auto">
-    <header class="flex justify-center my-5">
+    <header class="flex justify-center py-5 mb-8 bg-white border-b">
       <g-link to="/">
         <g-image
           :alt="$static.metadata.siteName"
