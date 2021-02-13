@@ -34,9 +34,6 @@
 import { price } from '~/utils'
 
 export default {
-  metaInfo: {
-    title: 'Hello, world!'
-  },
   computed: {
     allOffer() {
       return this.$static.allOffer.edges.map(({ node: offer }) => ({

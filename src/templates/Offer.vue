@@ -41,6 +41,11 @@ import { price } from '~/utils'
 
 export default {
   name: 'Offer',
+  metaInfo() {
+    return {
+      title: this.$page.offer.name,
+    }
+  },
   components: {
     SpotlightImage,
   },
