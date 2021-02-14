@@ -24,8 +24,15 @@ collections:
       - { label: Preço, name: fullPrice, widget: number, value_type: float }
       - label: Estoque
         name: stock
-        widget: number
-        default: 1
+        widget: list
+        summary: "Tamanho: {{size}} [{{count}}]"
+        fields:
+          - widget: string
+            name: size
+            label: Tamanho
+          - widget: number
+            name: count
+            label: Quantidade
       - label: Imagens
         name: imageList
         widget: list

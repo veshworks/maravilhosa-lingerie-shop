@@ -10,9 +10,15 @@
           {{ price }}
         </strong>
 
-        <ui-tag class="my-5">
-          {{ tagline }}
-        </ui-tag>
+        <div class="flex flex-wrap my-5 gap-2">
+          <ui-tag
+            v-for="stock in $page.offer.stock"
+            :key="stock.size"
+            :variant="stock.count ? 'default' : 'disabled'"
+          >
+            <strong>{{ stock.size }}</strong> | {{ tagline(stock.count) }}
+          </ui-tag>
+        </div>
 
         <a
           :href="`https://wa.me/5512991552955?text=${message}`"
@@ -53,21 +59,27 @@ export default {
     price() {
       return price.format(this.$page.offer.fullPrice)
     },
-    tagline() {
-      if (this.$page.offer.stock === 0) {
+    message() {
+      return encodeURIComponent(`Oi, gostaria de comprar o "${this.$page.offer.name.trim()}" (por ${this.price}).\n\n${this.$page.metadata.siteUrl}${this.$page.offer.path}`)
+    },
+  },
+  methods: {
+    tagline(quantity) {
+      if (quantity === 0) {
         return 'Esgotado'
       }
 
-      if (this.$page.offer.stock === 1) {
+      if (quantity === 1) {
         return 'Ultima unidade'
       }
 
-      return `Ultimas ${this.$page.offer.stock} unidades`
+      if (quantity <= 3) {
+        return `Ultimas ${quantity} unidades`
+      }
+
+      return `${quantity} unidades`
     },
-    message() {
-      return encodeURIComponent(`Oi, gostaria de comprar o "${this.$page.offer.name}" (por ${this.price}).\n\n${this.$page.metadata.siteUrl}${this.$page.offer.path}`)
-    },
-  },
+  }
 };
 </script>
 
@@ -82,7 +94,10 @@ query ($id: ID!) {
     path
     description
     fullPrice
-    stock
+    stock {
+      size
+      count
+    }
     imageList {
       image
       alt

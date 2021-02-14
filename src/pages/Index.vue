@@ -24,6 +24,16 @@
           <strong class="block mt-3 text-lg">
             {{ offer.displayPrice }}
           </strong>
+
+          <div class="flex flex-wrap justify-center mt-3 gap-2">
+            <ui-tag
+              v-for="stock in offer.stock"
+              :key="stock.size"
+              :variant="stock.count ? 'default' : 'disabled'"
+            >
+              <strong>{{ stock.size }}</strong>
+            </ui-tag>
+          </div>
         </div>
       </div>
     </ui-container>
@@ -53,9 +63,11 @@ query {
         id
         path
         name
-        description
         fullPrice
-        stock
+        stock {
+          size
+          count
+        }
         imageList {
           image
           alt
