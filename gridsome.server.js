@@ -13,16 +13,17 @@ const transformRelativePaths = (source, keylist) => Object.fromEntries(
 )
 
 module.exports = function (api) {
+  api.onCreateNode(node => {
+    if (node.internal.typeName !== 'Offer') { return options }
+
+    return {
+      ...node,
+      imageList: node.imageList.map((image) => transformRelativePaths(image, ['image'])),
+    }
+  })
+
   api.loadSource(({ addCollection, getCollection }) => {
     // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
-
-    const offers = getCollection('Offer')
-    offers.data().forEach(({ internal, ...node }) => {
-      offers.updateNode({
-        ...node,
-        imageList: node.imageList.map((image) => transformRelativePaths(image, ['image'])),
-      })
-    })
   })
 
   api.createPages(({ createPage }) => {
