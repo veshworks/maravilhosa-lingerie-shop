@@ -30,6 +30,7 @@
               v-for="stock in offer.stock"
               :key="stock.size"
               :variant="stock.count ? 'default' : 'disabled'"
+              :class="{ 'line-through': stock.count === 0 }"
             >
               <strong>{{ stock.size }}</strong>
             </ui-tag>
