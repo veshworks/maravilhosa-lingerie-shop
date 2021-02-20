@@ -100,7 +100,7 @@ query ($id: ID!) {
       count
     }
     imageList {
-      image
+      src
       alt
     }
   }

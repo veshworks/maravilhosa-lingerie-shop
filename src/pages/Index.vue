@@ -9,7 +9,7 @@
         <g-link :to="offer.path">
           <g-image
             :alt="offer.imageList[0].alt"
-            :src="offer.imageList[0].image"
+            :src="offer.imageList[0].src"
             class="object-cover w-full h-96"
           />
         </g-link>
@@ -70,7 +70,7 @@ query {
           count
         }
         imageList {
-          image
+          src
           alt
         }
       }

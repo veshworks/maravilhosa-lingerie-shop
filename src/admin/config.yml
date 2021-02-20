@@ -21,7 +21,8 @@ collections:
     fields:
       - { label: Nome do produto, name: name, widget: string }
       - { label: Descrição, name: description, widget: text }
-      - { label: Preço, name: fullPrice, widget: number, value_type: float }
+      - { label: "Preço cheio", name: fullPrice, widget: number, value_type: float }
+      - { label: "Preço com desconto (0 para vender sem desconto)", name: offeredPrice, widget: number, value_type: float, default: 0 }
       - label: Estoque
         name: stock
         widget: list
@@ -38,6 +39,8 @@ collections:
         widget: list
         fields:
           - widget: string
+            label: Texto alternativo
             name: alt
           - widget: image
-            name: image
+            label: Imagem
+            name: src

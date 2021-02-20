@@ -5,7 +5,7 @@
   >
     <div class="h-96">
       <g-image
-        :src="selected.image"
+        :src="selected.src"
         :alt="selected.alt"
         class="object-contain w-full h-full"
       />
@@ -22,7 +22,7 @@
         }"
       >
         <g-image
-          :src="image.image"
+          :src="image.src"
           :alt="image.alt"
           width="100"
           height="100"

@@ -18,7 +18,7 @@ module.exports = function (api) {
 
     return {
       ...node,
-      imageList: node.imageList.map((image) => transformRelativePaths(image, ['image'])),
+      imageList: node.imageList.map((image) => transformRelativePaths(image, ['src'])),
     }
   })
 
