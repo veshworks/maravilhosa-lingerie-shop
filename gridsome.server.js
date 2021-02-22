@@ -22,8 +22,12 @@ module.exports = function (api) {
     }
   })
 
-  api.loadSource(({ addCollection, getCollection }) => {
+  api.loadSource(({ addCollection }) => {
     // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
+    const collection = addCollection({ typeName: 'Categories' })
+    const { categories } = require('./src/_data/categories.json')
+
+    categories.forEach(category => collection.addNode(category))
   })
 
   api.createPages(({ createPage }) => {
