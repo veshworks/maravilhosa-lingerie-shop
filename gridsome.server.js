@@ -14,7 +14,7 @@ const transformRelativePaths = (source, keylist) => Object.fromEntries(
 
 module.exports = function (api) {
   api.onCreateNode(node => {
-    if (node.internal.typeName !== 'Offer') { return options }
+    if (node.internal.typeName !== 'Offer') { return node }
 
     return {
       ...node,
