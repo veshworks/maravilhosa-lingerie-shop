@@ -23,6 +23,13 @@ collections:
       - { label: Descrição, name: description, widget: text }
       - { label: "Preço cheio", name: fullPrice, widget: number, value_type: float }
       - { label: "Preço com desconto (0 para vender sem desconto)", name: offeredPrice, widget: number, value_type: float, default: 0 }
+      - label: "Categoria"
+        name: category
+        widget: relation
+        collection: configs
+        file: categories
+        search_fields: ["categories.*.category"]
+        value_field: "categories.*.category"
       - label: Estoque
         name: stock
         widget: list
@@ -44,3 +51,18 @@ collections:
           - widget: image
             label: Imagem
             name: src
+  - label: Configurações
+    name: configs
+    extension: "json"
+    editor:
+      preview: false
+    files:
+      - label: "Categorias"
+        name: categories
+        file: "src/_data/categories.json"
+        fields:
+          - label: Lista de Categorias
+            name: categories
+            widget: list
+            fields:
+              - { label: Nome da categoria, name: category, widget: string }
