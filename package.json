@@ -1,6 +1,7 @@
 {
   "name": "maravilhosa-lingerie-shop",
   "private": true,
+  "sideEffects": false,
   "scripts": {
     "build": "gridsome build",
     "develop": "concurrently \"npx gridsome develop\" \"npx netlify-cms-proxy-server\"",
