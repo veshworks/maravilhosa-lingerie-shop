@@ -27,6 +27,7 @@ module.exports = {
       },
       gridTemplateColumns: {
         '1full': 'repeat(1, minmax(0, 100%))',
+        '1fr2auto': '1fr auto',
       },
       animation: {
         skeleton: '2s skeleton infinite linear',

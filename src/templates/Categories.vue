@@ -29,6 +29,7 @@ query ($category: String) {
         id
         path
         name
+        price
         fullPrice
         stock {
           size

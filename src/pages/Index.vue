@@ -29,6 +29,7 @@ query {
         path
         name
         fullPrice
+        price
         stock {
           size
           count

@@ -21,8 +21,8 @@ collections:
     fields:
       - { label: Nome do produto, name: name, widget: string }
       - { label: Descrição, name: description, widget: text }
-      - { label: "Preço cheio", name: fullPrice, widget: number, value_type: float }
-      - { label: "Preço com desconto (0 para vender sem desconto)", name: offeredPrice, widget: number, value_type: float, default: 0 }
+      - { label: "Preço ofertado", name: price, widget: number, value_type: float, default: 0 }
+      - { label: "Preço cheio (0 para vender sem desconto)", name: fullPrice, widget: number, value_type: float }
       - label: "Categoria"
         name: category
         widget: relation

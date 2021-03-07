@@ -1,6 +1,9 @@
 import { price } from '~/utils'
 
-export const allOffersFormatter = ({ edges }) => edges.map(({ node: offer}) => ({
+export const offerFormatter = (offer) => ({
   ...offer,
-  displayPrice: price.format(offer.fullPrice),
-}))
+  displayFullPrice: price.format(offer.fullPrice),
+  displayPrice: price.format(offer.price),
+})
+
+export const allOffersFormatter = ({ edges }) => edges.map(({ node }) => offerFormatter(node))

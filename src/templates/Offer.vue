@@ -3,16 +3,20 @@
     <ui-container class="w-full grid grid-flow-row grid-cols-1full">
       <div class="w-full row-start-2">
         <h1 class="my-5 text-2xl">
-          {{ $page.offer.name }}
+          {{ offer.name }}
         </h1>
 
-        <strong class="text-2xl">
-          {{ price }}
+        <del
+          v-if="offer.fullPrice"
+          class="text-gray-600"
+        >{{ offer.displayFullPrice }}</del>
+        <strong class="block text-2xl">
+          {{ offer.displayPrice }}
         </strong>
 
         <div class="flex flex-wrap my-5 gap-2">
           <ui-tag
-            v-for="stock in $page.offer.stock"
+            v-for="stock in offer.stock"
             :key="stock.size"
             :variant="stock.count ? 'default' : 'disabled'"
             :class="{ 'line-through': stock.count === 0 }"
@@ -30,12 +34,12 @@
         </a>
 
         <p class="mt-5">
-          {{ $page.offer.description }}
+          {{ offer.description }}
         </p>
       </div>
 
       <SpotlightImage
-        :image-list="$page.offer.imageList"
+        :image-list="offer.imageList"
         class="w-full row-start-1"
       />
     </ui-container>
@@ -43,25 +47,34 @@
 </template>
 
 <script>
+import { offerFormatter } from '~/utils'
 import SpotlightImage from '~/components/SpotlightImage.vue'
-import { price } from '~/utils'
 
 export default {
   name: 'Offer',
   metaInfo() {
     return {
-      title: this.$page.offer.name,
+      title: this.offer.name,
     }
   },
   components: {
     SpotlightImage,
   },
   computed: {
-    price() {
-      return price.format(this.$page.offer.fullPrice)
+    offer() {
+      return offerFormatter(this.$page.offer)
     },
     message() {
-      return encodeURIComponent(`Oi, gostaria de comprar o "${this.$page.offer.name.trim()}" (por ${this.price}).\n\n${this.$page.metadata.siteUrl}${this.$page.offer.path}`)
+      const {
+        offer,
+        $page: { metadata: { siteUrl } }
+      } = this
+
+      const currentPageLink = `${siteUrl}${offer.path}`
+
+      return encodeURIComponent(
+        `Oi, gostaria de comprar o "${offer.name.trim()}" (por ${offer.displayPrice}).\n\n${currentPageLink}`
+      )
     },
   },
   methods: {
@@ -95,6 +108,7 @@ query ($id: ID!) {
     path
     description
     fullPrice
+    price
     stock {
       size
       count
