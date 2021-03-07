@@ -8,6 +8,7 @@ module.exports = {
       sans: ['Open Sans', 'sans-serif'],
     },
     screens: {
+      'mobile': { max: '1023px' },
       'desktop': '1024px',
     },
     extend: {
