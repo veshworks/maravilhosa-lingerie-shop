@@ -15,7 +15,7 @@ module.exports = {
       boxShadow: {
         'selected': '0 0 0 4px #c6a058'
       },
-      color: {
+      textColor: {
         'primary': '#c6a058',
         'secondary': '#727272',
         'accent': '#ff0000',
