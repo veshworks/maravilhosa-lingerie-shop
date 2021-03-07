@@ -29,10 +29,12 @@ module.exports = function (api) {
     const collection = addCollection({ typeName: 'Categories' })
     const { categories } = require('./src/_data/categories.json')
 
-    categories.forEach(node => collection.addNode({
-      ...node,
-      path: `/category/${slugify(node.category).toLowerCase()}`,
-    }))
+    categories
+      .reverse()
+      .forEach(node => collection.addNode({
+        ...node,
+        path: `/category/${slugify(node.category).toLowerCase()}`,
+      }))
   })
 
   api.createPages(({ createPage }) => {
