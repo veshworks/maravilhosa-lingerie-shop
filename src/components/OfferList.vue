@@ -1,5 +1,8 @@
 <template>
-  <ui-container class="grid desktop:grid-cols-3 grid-flow-rows gap-4">
+  <ui-container
+    v-if="offerList.length > 0"
+    class="grid desktop:grid-cols-3 grid-flow-rows gap-4"
+  >
     <div
       v-for="offer in offerList"
       :key="offer.id"
@@ -43,6 +46,18 @@
         </div>
       </div>
     </div>
+  </ui-container>
+  <ui-container
+    v-else
+    class="text-center desktop:my-48"
+  >
+    <ui-icon :name="['fal', 'fa-heart-broken']" size="7x" />
+
+    <strong class="block mt-6 text-xl desktop:text-2xl">Não existem itens nessa lista</strong>
+
+    <p class="mt-8 desktop:text-lg">
+      Tente selecionar outra categoria para ver outras listas.
+    </p>
   </ui-container>
 </template>
 

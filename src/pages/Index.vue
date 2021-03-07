@@ -22,7 +22,7 @@ export default {
 
 <static-query>
 query {
-  allOffer {
+  allOffer(limit: 9, filter: { isFeatured: { eq: true } }) {
     edges {
       node {
         id

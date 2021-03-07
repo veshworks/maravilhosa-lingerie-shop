@@ -20,6 +20,7 @@ collections:
     identifier_field: name
     fields:
       - { label: Nome do produto, name: name, widget: string }
+      - { label: Destaque, name: isFeatured, widget: boolean, default: true }
       - { label: Descrição, name: description, widget: text }
       - { label: "Preço ofertado", name: price, widget: number, value_type: float, default: 0 }
       - { label: "Preço cheio (0 para vender sem desconto)", name: fullPrice, widget: number, value_type: float }

@@ -23,5 +23,6 @@
   "description": "Biquíni preto, tamanho P, tecido com leve brilho acetinado. Sutiã com bojo e alças reguláveis; calcinha com lateral drapeada e larguinha, para quem gosta de conforto. ",
   "price": 49,
   "fullPrice": 0,
-  "category": "Biquíni"
+  "category": "Biquíni",
+  "isFeatured": false
 }
