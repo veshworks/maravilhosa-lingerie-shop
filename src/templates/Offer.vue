@@ -1,8 +1,8 @@
 <template>
   <Layout>
-    <ui-container class="w-full grid grid-flow-row grid-cols-1full">
-      <div class="w-full row-start-2">
-        <h1 class="my-5 text-2xl">
+    <ui-container class="w-full grid grid-flow-row grid-cols-1full desktop:grid-cols-2">
+      <div class="w-full mobile:row-start-2">
+        <h1 class="my-5 text-2xl desktop:mt-0">
           {{ offer.name }}
         </h1>
 
