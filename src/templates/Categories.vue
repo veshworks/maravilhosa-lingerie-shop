@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <OfferList :offer-list="allOffers" />
+    <OfferList :offer-list="allCategoryOffers" />
   </Layout>
 </template>
 
@@ -9,20 +9,21 @@ import OfferList from '~/components/OfferList'
 import { allOffersFormater } from '~/utils'
 
 export default {
+  name: 'Categories',
   components: {
     OfferList,
   },
   computed: {
-    allOffers() {
-      return allOffersFormater(this.$static.allOffer);
+    allCategoryOffers() {
+      return allOffersFormater(this.$page.allOffer)
     },
-  }
-}
+  },
+};
 </script>
 
-<static-query>
-query {
-  allOffer {
+<page-query>
+query ($category: String) {
+  allOffer(filter: { category: { eq: $category } }) {
     edges {
       node {
         id
@@ -41,4 +42,4 @@ query {
     }
   }
 }
-</static-query>
+</page-query>

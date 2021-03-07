@@ -12,6 +12,8 @@ const transformRelativePaths = (source, keylist) => Object.fromEntries(
       : [key, value])
 )
 
+const slugify = require('slugify')
+
 module.exports = function (api) {
   api.onCreateNode(node => {
     if (node.internal.typeName !== 'Offer') { return node }
@@ -27,7 +29,10 @@ module.exports = function (api) {
     const collection = addCollection({ typeName: 'Categories' })
     const { categories } = require('./src/_data/categories.json')
 
-    categories.forEach(category => collection.addNode(category))
+    categories.forEach(node => collection.addNode({
+      ...node,
+      path: `/category/${slugify(node.category).toLowerCase()}`,
+    }))
   })
 
   api.createPages(({ createPage }) => {
