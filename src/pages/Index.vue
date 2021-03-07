@@ -6,7 +6,7 @@
 
 <script>
 import OfferList from '~/components/OfferList'
-import { allOffersFormater } from '~/utils'
+import { allOffersFormatter } from '~/utils'
 
 export default {
   components: {
@@ -14,7 +14,7 @@ export default {
   },
   computed: {
     allOffers() {
-      return allOffersFormater(this.$static.allOffer);
+      return allOffersFormatter(this.$static.allOffer);
     },
   }
 }
