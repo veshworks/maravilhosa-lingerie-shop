@@ -48,6 +48,12 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: 'TheLayout',
+}
+</script>
+
 <static-query>
 query {
   metadata {

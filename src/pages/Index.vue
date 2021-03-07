@@ -1,7 +1,7 @@
 <template>
-  <Layout>
+  <TheLayout>
     <OfferList :offer-list="allOffers" />
-  </Layout>
+  </TheLayout>
 </template>
 
 <script>
